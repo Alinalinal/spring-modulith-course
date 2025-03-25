@@ -26,5 +26,5 @@ public class OrderInventory {
     private long orderId;
     private long inventoryId;
     private int qty;
-    private int totalQtyPrice;
+    private long totalQtyPrice;
 }
