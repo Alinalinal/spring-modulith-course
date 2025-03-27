@@ -1,5 +1,7 @@
 package com.alina.springmodulithcourse.order;
 
+import com.alina.springmodulithcourse.order.dto.CompleteOrder;
+import com.alina.springmodulithcourse.order.dto.CompleteOrderResponse;
 import com.alina.springmodulithcourse.order.dto.OrderDto;
 import com.alina.springmodulithcourse.order.dto.OrderResponseDto;
 import lombok.RequiredArgsConstructor;
@@ -20,5 +22,10 @@ public class OrderController {
     @PostMapping
     public ResponseEntity<OrderResponseDto> createOrder(@RequestBody OrderDto orderDto) {
         return new ResponseEntity<>(orderService.createOrder(orderDto), HttpStatus.OK);
+    }
+
+    @PostMapping(path = "complete")
+    public ResponseEntity<CompleteOrderResponse> completeOrder(@RequestBody CompleteOrder completeOrder) {
+        return new ResponseEntity<>(orderService.completePayment(completeOrder), HttpStatus.OK);
     }
 }
