@@ -1,5 +1,6 @@
 package com.alina.springmodulithcourse.order.typeconverter;
 
+import com.alina.springmodulithcourse.exception.ModulithException;
 import com.alina.springmodulithcourse.order.type.Status;
 import jakarta.persistence.AttributeConverter;
 import jakarta.persistence.Converter;
@@ -14,13 +15,13 @@ public class StatusConverter implements AttributeConverter<Status, String> {
         return Arrays.stream(Status.values())
                 .filter(s -> s == status)
                 .map(Status::getCode)
-                .findFirst().orElseThrow(() -> new IllegalArgumentException("No status found"));
+                .findFirst().orElseThrow(() -> new ModulithException("No status found"));
     }
 
     @Override
     public Status convertToEntityAttribute(String code) {
         return Arrays.stream(Status.values())
                 .filter(s -> s.getCode().equals(code))
-                .findFirst().orElseThrow(() -> new IllegalArgumentException("No status found"));
+                .findFirst().orElseThrow(() -> new ModulithException("No status found"));
     }
 }

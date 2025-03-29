@@ -2,6 +2,7 @@ package com.alina.springmodulithcourse.eventaction.action;
 
 import com.alina.springmodulithcourse.eventaction.EventAction;
 import com.alina.springmodulithcourse.eventaction.EventActionRepository;
+import com.alina.springmodulithcourse.exception.ModulithException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.env.Environment;
@@ -43,7 +44,7 @@ public class RepublishUncompletedEvent {
 //                        .deletePublicationsOlderThan(
 //                                Duration.ofHours(env.getProperty("delete.event.duration", Long.class, 100L)));
             } catch (ClassNotFoundException e) {
-                throw new RuntimeException(e);
+                throw new ModulithException(e.getMessage());
             }
         }
     }

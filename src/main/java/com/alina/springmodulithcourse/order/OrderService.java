@@ -1,5 +1,6 @@
 package com.alina.springmodulithcourse.order;
 
+import com.alina.springmodulithcourse.exception.ModulithException;
 import com.alina.springmodulithcourse.inventory.exposed.InventoryDto;
 import com.alina.springmodulithcourse.inventory.exposed.InventoryService;
 import com.alina.springmodulithcourse.order.dto.CompleteOrder;
@@ -62,7 +63,7 @@ public class OrderService {
         Optional<Order> optionalOrder = orderRepository.getOrderByOrderIdentifier(completeOrder.orderIdentifier());
 
         if (optionalOrder.isEmpty()) {
-            throw new RuntimeException("Order not found");
+            throw new ModulithException("Order with id '" + completeOrder.orderIdentifier() + "' not found");
         }
 
         Order order = optionalOrder.get();
