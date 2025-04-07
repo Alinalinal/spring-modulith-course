@@ -1,12 +1,12 @@
 spring:
   datasource:
-    username: modulith
-    password: modulith
-    url: jdbc:postgresql://localhost:5432/spring_modulith
+    username: ${MODULITH_USERNAME:modulith}
+    password: ${MODULITH_PASSWORD:modulith}
+    url: jdbc:postgresql://${MODULITH_HOST}:${MODULITH_PORT:5432}/${MODULITH_DB_NAME}
 
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: none
     defer-datasource-initialization: true
   sql:
     init:
@@ -18,7 +18,7 @@ spring:
 
 delete:
   event:
-    duration: 5000
+    duration: ${DELETE_EVENT_DURATION:5000}
 
 #logging:
 #  level:
@@ -29,7 +29,7 @@ management:
   endpoints:
     web:
       exposure:
-        include: '*'
+        include: ${ACTUATOR_EXPOSED_ENDPOINTS:health}
 
 server:
-  port: 8081
+  port: ${SERVER_PORT:8081}
