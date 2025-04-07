@@ -1,4 +1,10 @@
 spring:
+  datasource:
+    username: modulith
+    password: modulith
+    url: jdbc:postgresql://postgres:5432/spring_modulith
+#    url: jdbc:postgresql://localhost:5432/spring_modulith # run not in docker container
+
   jpa:
     hibernate:
       ddl-auto: update
@@ -25,3 +31,6 @@ management:
     web:
       exposure:
         include: '*'
+
+#server:
+#  port: 8081
