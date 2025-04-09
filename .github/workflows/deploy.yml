@@ -4,6 +4,13 @@ on:
     branches:
       - main
 
-env:
-  SPRING_PROFILE: docker
-  MODULITH_HOST: localhost
+jobs:
+  build-section:
+    environment: action
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: print something
+        run: echo "Here Modulithers!!! I am printing something"
+
+#  push-image-section
