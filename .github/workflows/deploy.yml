@@ -1,0 +1,9 @@
+name: build push image for deployment
+on:
+  push:
+    branches:
+      - main
+
+env:
+  SPRING_PROFILE: docker
+  MODULITH_HOST: localhost
