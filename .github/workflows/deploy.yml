@@ -32,7 +32,6 @@ jobs:
     container: postgres
     services:
       postgres:
-        container_name: postgres
         image: 'postgres:16.2'
         env:
           POSTGRES_DB: ${{ vars.MODULITH_DB_NAME }}
