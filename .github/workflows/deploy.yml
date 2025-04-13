@@ -86,6 +86,7 @@ jobs:
 
 
   push-image-section:
+    environment: action
     needs: build-job-section
     runs-on: ubuntu-latest
 
