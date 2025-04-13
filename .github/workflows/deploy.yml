@@ -107,3 +107,12 @@ jobs:
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: Push image
+        uses: docker/build-push-action@v5
+        with:
+          push: true
+          tags: ${{ secrets.DOCKER_USERNAME }}/modulith:1.0
+          context: .
+          file: ./Dockerfile
+          builder: ${{ steps.buildx.outputs.name }}
